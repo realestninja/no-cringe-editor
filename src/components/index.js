@@ -19,6 +19,8 @@ const NoCringeEditor = () => {
     setEditorState(RichUtils.toggleInlineStyle(editorState, "UNDERLINE"));
   };
 
+  const wordCount = currentContent.getPlainText("\u0001").split(" ").filter(item => !!item.length).length;
+
   return (
     <div>
       <button type="button" onClick={handleBold}>bold</button>
@@ -29,6 +31,7 @@ const NoCringeEditor = () => {
         onChange={setEditorState}
       />
       <hr />
+      Word count: {wordCount}
     </div>
   );
 };
