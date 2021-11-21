@@ -11,13 +11,8 @@ const NoCringeEditor = () => {
   const html = stateToHTML(currentContent);
   console.log("html:", html);
 
-  const handleBold = () => {
-    setEditorState(RichUtils.toggleInlineStyle(editorState, "BOLD"));
-  };
-
-  const handleUnderline = () => {
-    setEditorState(RichUtils.toggleInlineStyle(editorState, "UNDERLINE"));
-  };
+  const handleBold = () => setEditorState(RichUtils.toggleInlineStyle(editorState, "BOLD"));
+  const handleUnderline = () => setEditorState(RichUtils.toggleInlineStyle(editorState, "UNDERLINE"));
 
   const wordCount = currentContent.getPlainText("\u0001").split(" ").filter(item => !!item.length).length;
 
