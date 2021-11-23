@@ -14,6 +14,10 @@ const NoCringeEditor = () => {
   const handleBold = () => setEditorState(RichUtils.toggleInlineStyle(editorState, "BOLD"));
   const handleUnderline = () => setEditorState(RichUtils.toggleInlineStyle(editorState, "UNDERLINE"));
 
+  const handleKeyCommand = command =>  {
+    setEditorState(RichUtils.handleKeyCommand(editorState, command));
+  }
+
   const wordCount = currentContent.getPlainText("\u0001").split(" ").filter(item => !!item.length).length;
 
   return (
@@ -24,6 +28,7 @@ const NoCringeEditor = () => {
       <Editor
         editorState={editorState}
         onChange={setEditorState}
+        handleKeyCommand={handleKeyCommand}
       />
       <hr />
       Word count: {wordCount}
