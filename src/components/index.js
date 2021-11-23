@@ -13,6 +13,7 @@ const NoCringeEditor = () => {
 
   const handleBold = () => setEditorState(RichUtils.toggleInlineStyle(editorState, "BOLD"));
   const handleUnderline = () => setEditorState(RichUtils.toggleInlineStyle(editorState, "UNDERLINE"));
+  const handleCode = () => setEditorState(RichUtils.toggleCode(editorState));
 
   const handleKeyCommand = command =>  {
     setEditorState(RichUtils.handleKeyCommand(editorState, command));
@@ -24,6 +25,7 @@ const NoCringeEditor = () => {
     <div>
       <button type="button" onClick={handleBold}>bold</button>
       <button type="button" onClick={handleUnderline}>underline</button>
+      <button type="button" onClick={handleCode}>code</button>
       <hr />
       <Editor
         editorState={editorState}
